@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Smiles and Hugs</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"> <img src="media/logo/log.png" alt="Smiles&Hugs Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a> </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about_us.html">About Us</a>
+            </li>
+            <li class="nav-item-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Our Programs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <a class="dropdown-item" href="index.html#programs">Playgroup</a>
+                <a class="dropdown-item" href="index.html#programs">Nursery</a>
+                <a class="dropdown-item" href="index.html#programs">Junior KG</a>
+                <a class="dropdown-item" href="index.html#programs">Senior KG</a>
+                <a class="dropdown-item" href="index.html#programs">Daycare</a>
+                <a class="dropdown-item" href="index.html#programs">Activity Center</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="memories.html" target="new">Our Memories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <a href="enroll.html" target="new" class="btn btn-primary">Enroll Now</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="contact-section py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Get In Touch</h2>
+        <div class="row">
+
+          <div class="col-lg-6 mb-4">
+            <h4>Send Us a Message</h4>
+            <p>Have questions or feedback? Fill out the form below.</p> 
+            <form action="#" method="POST"> <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject">
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="contact-info p-4 mb-4">
+              <h4>Contact Information</h4>
+              <p>Feel free to reach out to us via email or phone, or visit us at our location.</p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-map-marker-alt"></i> 68, Jyoti Path, Ajanta Path, Survey</li>
+                <li><i class="fas fa-phone"></i> +91 7099062627</li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:smilesandhugs07@gmail.com">smilesandhugs07@gmail.com</a></li>
+              </ul>
+            </div>
+
+            <h4>Our Location</h4>
+            <div class="map-responsive">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.1292422915462!2d91.78965221169756!3d26.12732867702862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a59f2d59c446d%3A0x1340254a2438ae9b!2sSmiles%20and%20Hugs%20Preschool!5e0!3m2!1sen!2sin!4v1762350229333!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white p-4">
+      <div class="container text-center">
+        <p>&copy; 2025 Smiles and Hugs Preschool. All Rights Reserved.</p>
+        <p>
+          <a href="#" class="text-white">Privacy Policy</a> | 
+          <a href="contact.html" class="text-white">Contact Us</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@poppersjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

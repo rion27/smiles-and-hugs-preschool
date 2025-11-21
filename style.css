@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+/* --- GLOBAL FONT STYLING --- */
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400; /* Sets the default regular font weight */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700; /* Sets a bolder weight for all headings */
+}
+@media (max-width: 768px) {
+    .navbar-nav{
+        text-align: center;
+    }
+}
+/* Center dropdown menu under "Our Services" */
+.navbar-nav .nav-item-dropdown .dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FEF3E2; /* Your light color */
+}
+#heroCarousel .carousel-item {
+    height: 100vh; /* Full viewport height */
+    background-size: cover; /* Cover the entire slide */
+    background-position: center; /* Center the background image */
+    position: relative; /* Position relative for overlay */
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.546); /* Black overlay with increased opacity */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    color: #FEF3E2; /* creame text color */
+    text-align: center; /* Center text */
+}
+h1 {
+    font-size: 3rem; /* Adjust heading size */
+    font-weight: bold; /* Make heading bold */
+}
+.btn-read-more {
+    margin-top: 20px; /* Space above the button */
+}
+.about-section {
+    padding: 60px 0; /* Vertical padding for the section */
+    background-color: #f8dbbf;
+}
+.about-image-index {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+.about-image {
+    width: 100%;      /* Forces image to fill the column width */
+    height: 450px;    /* Sets a fixed height. You can change this to 400px or 500px! */
+    object-fit: cover; /* This cuts off excess parts of the image to fit the box neatly */
+    border-radius: 10px; /* Ensures the corners are rounded */
+}
+
+/* --- NAVBAR STYLING --- */
+.navbar {
+    /* Your original code had a fixed height: 60px.
+      This is fine, but I'm removing it to let Bootstrap's padding
+      control the height, which is a bit more flexible.
+      You can add 'height: 60px;' back if you prefer!
+    */
+    height: 60px;   /*changed as practically not good looking*/
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    background-color: #FDF4E3; /* A soft, off-white. You can change this hex code! */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Adds a subtle shadow */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Makes sure it takes full navbar height */
+    padding: 0; /* Remove default padding */
+}
+
+.navbar-logo {
+    /* *** CSS FIX ***
+      Changed from 135px to 50px.
+      The original 135px was much larger than the navbar height.
+      This fits it neatly inside.
+    */
+    max-height: 140px; 
+    width: auto; /* Maintain aspect ratio */
+    margin: 5px 0; /* Add a little vertical margin */
+}
+
+/* --- "OUR PROGRAMS" SECTION STYLING --- */
+/* This is your original code - it's perfect! */
+.our-services {
+    background-color: #f8dbbf; /* Light gray background */
+}
+
+.service-box {
+    background: #FEF3E2;
+    padding: 30px; /* Increased padding a bit */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    height: 100%; /* Makes all boxes in a row the same height */
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 40px;
+    color: #503C3C;
+    margin-bottom: 15px;
+}
+
+/* *** NEW CSS ***
+  Simple style for the new footer links
+*/
+footer a:hover {
+    text-decoration: underline;
+}
+/* --- CONTACT PAGE STYLING --- */
+.contact-section {
+    background-color: #f8dbbf; /* A light, clean blue-gray */
+}
+
+/* --- Your other contact styles --- */
+.contact-info {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: #FDF4E3;
+}
+/* ...etc... */
+/* --- CONTACT PAGE STYLING --- */
+
+/* This targets all <input> and <textarea> boxes in the contact form */
+.contact-section .form-control {
+    background-color: #FDF4E3;
+}
+/* --- ABOUT US TABS STYLING --- */
+
+/* This styles the INACTIVE tabs */
+.about-section .nav-tabs .nav-link {
+    background-color: #FEF3E2; /* Same as your "Our Programs" boxes */
+    color: #503C3C;           /* Dark icon color for text */
+    border: 1px solid #e0c9b0; /* A light border */
+    margin-right: 5px;         /* A little space between tabs */
+}
+
+/* This styles the ACTIVE tab */
+.about-section .nav-tabs .nav-link.active {
+    background-color: #503C3C; /* Dark icon color */
+    color: #FFFFFF;           /* White text */
+    border-color: #503C3C;     /* Matching border */
+}
+
+/* Optional: This cleans up the tab content area */
+.about-section .tab-content {
+    background-color: #f8dbbf; /* Makes the text area white */
+    padding: 20px;
+    /*border: 1px solid #e0c9b0;
+    border-top: none; /* The tab itself acts as the top border */
+    /*border-radius: 0 5px 5px 5px; /* Rounds the corners */
+}
+/* --- "OUR PROGRAMS" DROPDOWN STYLING --- */
+
+/* This makes the dropdown links dark by default */
+.navbar-nav .nav-item-dropdown .dropdown-item {
+    color: #503C3C; /* Dark text */
+}
+
+/* This styles the links on hover (dark background, white text) */
+.navbar-nav .nav-item-dropdown .dropdown-item:hover {
+    color: #FFFFFF;           /* White text on hover */
+    background-color: #503C3C; /* Your dark color on hover */
+}
+/* --- PRIMARY BUTTON STYLING --- */
+
+/* This sets the main button color */
+.btn-primary {
+    background-color: #503C3C; /* Your dark color */
+    border-color: #503C3C;     /* Matching border */
+    color: #FFFFFF;           /* White text */
+}
+
+/* This styles the button on hover */
+.btn-primary:hover {
+    background-color: #3a2c2c; /* A slightly darker shade for hover */
+    border-color: #3a2c2c;
+    color: #FFFFFF;
+}
+
+/* This styles the button when clicked/focused */
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #3a2c2c;
+    border-color: #3a2c2c;
+    color: #FFFFFF;
+    /* Optional: a focus ring in your brand color */
+    box-shadow: 0 0 0 0.2rem rgba(80, 60, 60, 0.5); 
+}
+
+
+/* --- ABOUT US PAGE STYLING --- */
+
+/* 1. Hero Section */
+.about-hero {
+    background-color: #FEF3E2; /* Your light cream color */
+}
+
+/* 2. Facility Carousel Section */
+.our-facility {
+    background-color: #FEF3E2; /* cream background */
+}
+
+.facility-carousel-wrapper {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Lifts it off the page */
+    overflow: hidden; /* Ensures the images stay rounded */
+}
+
+#facilityCarousel .carousel-item img {
+     width: 100%;      /* Forces image to fill the column width */
+    height: 450px;    /* Sets a fixed height. You can change this to 400px or 500px! */
+    object-fit: cover; /* This cuts off excess parts of the image to fit the box neatly */
+    border-radius: 10px; /* Ensures the corners are rounded */
+}
+
+/* 3. Team Section */
+.our-team {
+    background-color: #f8dbbf; /* Your main background color */
+}
+
+.team-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px); /* Nice hover effect */
+}
+
+.team-card img {
+    border-radius: 10px 10px 0 0; /* Rounds the top corners of the image */
+    height: 300px;
+    object-fit: cover;
+}
+/* --- 5. TESTIMONIALS SECTION --- */
+.testimonials-section {
+    background-color: #FEF3E2; /* Your light cream color */
+}
+
+.testimonial-card {
+    background: #f8dbbf; /* White card */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    height: 100%; /* Makes all cards in a row the same height */
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card .stars {
+    color: #503C3C; /* Your dark brand color */
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.testimonial-card .review-text {
+    font-style: italic;
+    color: #333;
+    font-size: 1.1rem;
+    flex-grow: 1; /* This makes the text fill the space */
+    margin-bottom: 20px;
+}
+
+.testimonial-card .parent-name {
+    color: #503C3C;
+    font-weight: bold;
+}
+/* --- Style for new facility text list --- */
+.facility-text ul {
+    margin-top: 15px;
+}
+
+.facility-text ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* This styles the checkmark icon */
+.facility-text ul li .fa-check {
+    color: #503C3C; /* Your dark brand color */
+    margin-right: 10px;
+}
+/* --- ENROLL NOW PAGE STYLING --- */
+.enroll-section {
+    background-color: #f8dbbf; /* Matches your main page color */
+}
+
+/* This styles the box around the PDF */
+.pdf-viewer-wrapper {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden; /* Hides the iframe's default border */
+    border: 1px solid #e0c9b0; /* A light border */
+}
+
+/* This removes the default iframe border */
+.pdf-viewer-wrapper iframe {
+    display: block; 
+    border: none;
+}
+
+/* This adds a small icon to your download button */
+.btn-primary .fa-download {
+    margin-right: 8px;
+}
+/* --- MEMORIES PAGE STYLING --- */
+
+.gallery-section {
+    background-color: #f8dbbf; /* Matches main theme */
+    min-height: 600px;
+}
+
+/* Filter Buttons */
+.gallery-filter {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: #503C3C;
+    border: 2px solid #503C3C;
+    border-radius: 30px; /* Rounded pills */
+    padding: 8px 20px;
+    margin: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #503C3C;
+    color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Gallery Images */
+.gallery-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    background-color: #503C3C;
+    padding: 5px; /* Creates a white border effect */
+}
+
+.gallery-box img {
+    width: 100%;
+    height: 250px; /* Fixed height for uniform grid */
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.5s ease;
+}
+
+.gallery-box:hover img {
+    transform: scale(1.1); /* Zooms in on hover */
+}
+
+/* Overlay Text (Hidden by default, shows on hover) */
+.gallery-overlay {
+    position: absolute;
+    bottom: -50px; /* Hidden below */
+    left: 0;
+    right: 0;
+    background: rgba(80, 60, 60, 0.8); /* Dark semi-transparent brand color */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    transition: bottom 0.3s ease;
+}
+
+.gallery-box:hover .gallery-overlay {
+    bottom: 0; /* Slides up on hover */
+}
