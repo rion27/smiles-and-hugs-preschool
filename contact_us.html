@@ -56,8 +56,10 @@
 
           <div class="col-lg-6 mb-4">
             <h4>Send Us a Message</h4>
-            <p>Have questions or feedback? Fill out the form below.</p> 
-            <form action="#" method="POST"> <div class="form-group">
+            <p>Have questions or feedback? Fill out the form below.</p>
+            
+            <form id="contactForm">
+              <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" class="form-control" id="name" required>
               </div>
@@ -73,6 +75,9 @@
                 <label for="message">Message</label>
                 <textarea class="form-control" id="message" rows="5" required></textarea>
               </div>
+            
+              <div id="formResponse" class="mb-3 text-center" style="display:none; color: green; font-weight: bold;"></div>
+            
               <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
           </div>
