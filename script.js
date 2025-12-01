@@ -1,19 +1,16 @@
-// Initialize Bootstrap Carousel
+//alert("I am connected!");
+// 1. Initialize Bootstrap Carousel
 $('.carousel').carousel({
     interval: 5000
 });
 
-// --- GALLERY FILTER LOGIC ---
+// 2. Gallery Filter Logic (For Memories Page)
 $(document).ready(function(){
-
     $(".filter-btn").click(function(){
         var value = $(this).attr('data-filter');
-        
-        // 1. Change active button styling
         $(".filter-btn").removeClass("active");
         $(this).addClass("active");
 
-        // 2. Filter images
         if(value == "all"){
             $('.gallery-item').show('1000');
         }
@@ -22,37 +19,77 @@ $(document).ready(function(){
             $('.gallery-item').filter('.'+value).show('3000');
         }
     });
-
 });
 
-// --- CONTACT FORM INTEGRATION ---
-document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop page reload
+// 3. Contact Form Integration (Only runs if form exists)
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    // Only run this code if the contactForm is actually on the page
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page reload
 
-    // 1. Get data from the form
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+            // Get data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
 
-    // 2. Send to Node.js Server
-    fetch('http://localhost:3000/submit-contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // 3. Show success message
-        const responseDiv = document.getElementById('formResponse');
-        responseDiv.style.display = 'block';
-        responseDiv.innerText = data.message;
-        
-        // Clear the form
-        document.getElementById('contactForm').reset();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert("Server error. Is 'node server.js' running?");
-    });
+            // Send to server
+            fetch('http://localhost:3000/submit-contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, subject, message }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const responseDiv = document.getElementById('formResponse');
+                if(responseDiv) {
+                    responseDiv.style.display = 'block';
+                    responseDiv.innerText = data.message;
+                }
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert("Server error. Make sure 'node server.js' is running!");
+            });
+        });
+    }
+});
+
+// 4. Callback Form Integration (Only runs if form exists)
+document.addEventListener('DOMContentLoaded', function() {
+    const callbackForm = document.getElementById('callbackForm');
+
+    // Only run this code if the callbackForm is actually on the page
+    if (callbackForm) {
+        callbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('parentName').value;
+            const phone = document.getElementById('parentPhone').value;
+            const message = document.getElementById('parentMessage').value;
+
+            fetch('http://localhost:3000/submit-form', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, phone: phone, message: message }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const responseDiv = document.getElementById('formResponse');
+                if(responseDiv) {
+                    responseDiv.style.display = 'block';
+                    responseDiv.innerText = data.message;
+                }
+                callbackForm.reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert("Server error. Make sure 'node server.js' is running!");
+            });
+        });
+    }
 });
