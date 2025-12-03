@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = document.getElementById('message').value;
 
             // Send to server
-            fetch('http://localhost:3000/submit-contact', {
+            fetch('https://smiles-and-hugs-preschool.onrender.com/submit-contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, subject, message }),
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const phone = document.getElementById('parentPhone').value;
             const message = document.getElementById('parentMessage').value;
 
-            fetch('http://localhost:3000/submit-form', {
+            fetch('https://smiles-and-hugs-preschool.onrender.com/submit-form', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: name, phone: phone, message: message }),
