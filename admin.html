@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Smiles & Hugs</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7fa; padding: 40px; }
+        .dashboard-container { max-width: 1000px; margin: 0 auto; }
+        .card { border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 10px; }
+        .table-responsive { max-height: 500px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+
+<div class="container dashboard-container">
+    <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+    <div id="loginSection" class="card p-5">
+        <h4 class="mb-3 text-center">Please Log In</h4>
+        <div class="form-group">
+            <input type="password" id="adminPass" class="form-control" placeholder="Enter Admin Password">
+        </div>
+        <button onclick="loadData()" class="btn btn-dark btn-block">View Inquiries</button>
+        <p id="errorMsg" class="text-danger mt-2 text-center" style="display:none;"></p>
+    </div>
+
+    <div id="dataSection" style="display:none;">
+        <div class="card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Parent Inquiries</h4>
+                <button onclick="location.reload()" class="btn btn-outline-danger btn-sm">Logout</button>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadData() {
+        const password = document.getElementById('adminPass').value;
+        const errorMsg = document.getElementById('errorMsg');
+
+        // 1. Ask the server for data
+        fetch('http://localhost:3000/admin/inquiries', {
+            method: 'GET',
+            headers: { 
+                'x-admin-password': password // Send password in header
+            }
+        })
+        .then(res => {
+            if(res.status === 403) {
+                throw new Error("Wrong Password! Access Denied.");
+            }
+            return res.json();
+        })
+        .then(json => {
+            // 2. Hide Login, Show Data
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('dataSection').style.display = 'block';
+            
+            // 3. Build the table
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = ''; // Clear any old data
+            
+            json.data.forEach(row => {
+                const tr = `
+                    <tr>
+                        <td>${row.id}</td>
+                        <td><strong>${row.name}</strong></td>
+                        <td>${row.email}</td>
+                        <td>${row.subject}</td>
+                        <td>${row.message}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += tr;
+            });
+        })
+        .catch(err => {
+            errorMsg.style.display = 'block';
+            errorMsg.innerText = err.message;
+        });
+    }
+</script>
+
+</body>
+</html>
